@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: 
+  last_name: 
+  stripe_id: 
+  phone_number: 
+  phone_carrier: 
+  email_reminder?: 
+  sms_reminder?: 
+  address_line_1: 
+  address_line_2: 
+  zip_code: 
+  city: 
+  state: 
+  state: 
+  country: 
+  admin?: false
+
+two:
+  first_name: 
+  last_name: 
+  stripe_id: 
+  phone_number: 
+  phone_carrier: 
+  email_reminder?: 
+  sms_reminder?: 
+  address_line_1: 
+  address_line_2: 
+  zip_code: 
+  city: 
+  state: 
+  state: 
+  country: 
+  admin?: false
