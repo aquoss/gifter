@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # The path used after sign up.
+  def after_sign_up_path_for(user)
+    new_user_path(user)
+  end
+
+  # The path used after sign in
   def after_sign_in_path_for(user)
     user_path(user)
   end
@@ -12,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys:
-      [:first_name, :last_name, :phone_number, :phone_carrier, :email_reminder?, :sms_reminder?,  :address_line_1, :address_line_2, :zip_code, :city, :state, :country])
+      [:first_name, :last_name, :phone_number, :phone_carrier, :email_reminder, :sms_reminder,  :address_line_1, :address_line_2, :zip_code, :city, :state, :country])
   end
 end
 

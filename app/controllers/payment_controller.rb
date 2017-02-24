@@ -1,4 +1,8 @@
 class PaymentController < ApplicationController
+
+  def index
+  end
+
   def new
     @user = User.find_by_id(params[:id])
   end
@@ -8,7 +12,7 @@ class PaymentController < ApplicationController
 
     # Set your secret key: remember to change this to your live secret key in production
     # See your keys here: https://dashboard.stripe.com/account/apikeys
-    Stripe.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+    Stripe.api_key = "sk_test_SGwnOJkSlINjRw6md5KFpRf5"
 
     # Create a Customer:
     customer = Stripe::Customer.create(
