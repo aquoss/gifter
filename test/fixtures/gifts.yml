@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: MyString
+  price: 1.5
+  ordered: false
+  tracking_number: MyString
+  confirmed_delivery: false
+
+two:
+  item: MyString
+  price: 1.5
+  ordered: false
+  tracking_number: MyString
+  confirmed_delivery: false
