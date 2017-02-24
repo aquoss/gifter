@@ -1,2 +1,10 @@
-hey hey it's <%= @user.first_name %>
-and my checkbox preferences are email: <%= @user.email_reminder? %> and text: <%= @user.sms_reminder? %>
+<h1>Hi, <%= @user.first_name %></h1>
+<h3>Time to choose a gift!</h3>
+<% @recipients.each do |recipient| %>
+  <% recipient.events.each do |event| %>
+    <% if event.calendar_date < 14.days.from_now %>
+      <%= recipient.first_name %>
+      <%= event.occasion %>
+    <% end %>
+  <% end %>
+<% end %>
