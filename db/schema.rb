@@ -10,10 +10,92 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224004707) do
+ActiveRecord::Schema.define(version: 20170225023138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.date     "calendar_date"
+    t.string   "occasion"
+    t.boolean  "recurring_yearly"
+    t.integer  "recipient_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["recipient_id"], name: "index_events_on_recipient_id", using: :btree
+  end
+
+  create_table "gift_ideas", force: :cascade do |t|
+    t.text     "idea"
+    t.integer  "recipient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["recipient_id"], name: "index_gift_ideas_on_recipient_id", using: :btree
+  end
+
+  create_table "gifts", force: :cascade do |t|
+    t.string   "item"
+    t.float    "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "gift_id"
+    t.string   "tracking_number"
+    t.boolean  "confirmed_delivery"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["event_id"], name: "index_orders_on_event_id", using: :btree
+    t.index ["gift_id"], name: "index_orders_on_gift_id", using: :btree
+  end
+
+  create_table "recipients", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_recipients_on_user_id", using: :btree
+  end
+
+  create_table "traits", force: :cascade do |t|
+    t.boolean  "reading"
+    t.boolean  "film"
+    t.boolean  "cooking"
+    t.boolean  "art"
+    t.boolean  "electronics"
+    t.boolean  "sports"
+    t.boolean  "fashion"
+    t.boolean  "gaming"
+    t.boolean  "music"
+    t.boolean  "travel"
+    t.boolean  "outdoor_activities"
+    t.boolean  "infant"
+    t.boolean  "child"
+    t.boolean  "teenager"
+    t.boolean  "young_adult"
+    t.boolean  "adult"
+    t.boolean  "senior"
+    t.boolean  "female"
+    t.boolean  "male"
+    t.boolean  "cheapest_price"
+    t.boolean  "low_price"
+    t.boolean  "med_price"
+    t.boolean  "high_price"
+    t.string   "traitable_type"
+    t.integer  "traitable_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["traitable_type", "traitable_id"], name: "index_traits_on_traitable_type_and_traitable_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -46,4 +128,9 @@ ActiveRecord::Schema.define(version: 20170224004707) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "events", "recipients"
+  add_foreign_key "gift_ideas", "recipients"
+  add_foreign_key "orders", "events"
+  add_foreign_key "orders", "gifts"
+  add_foreign_key "recipients", "users"
 end

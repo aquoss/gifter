@@ -1,7 +1,47 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  interest: MyString
+  reading: false
+  film: false
+  cooking: false
+  art: false
+  electronics: false
+  sports: false
+  fashion: false
+  gaming: false
+  music: false
+  travel: false
+  outdoor_activities: false
+  infant: false
+  child: false
+  teenager: false
+  young_adult: false
+  adult: false
+  senior: false
+  female: false
+  male: false
+  characterizable: one
+  characterizable_type: Characterizable
 
 two:
-  interest: MyString
+  reading: false
+  film: false
+  cooking: false
+  art: false
+  electronics: false
+  sports: false
+  fashion: false
+  gaming: false
+  music: false
+  travel: false
+  outdoor_activities: false
+  infant: false
+  child: false
+  teenager: false
+  young_adult: false
+  adult: false
+  senior: false
+  female: false
+  male: false
+  characterizable: two
+  characterizable_type: Characterizable
