@@ -12,7 +12,7 @@ class GiftsController < ApplicationController
         matches.gift = count
       end
     end
-    matches.sort_by{|x,y| y}.to_h.reverse
+    @top_gifts = matches.sort_by{|k,v| -v}[0..10].to_h
   end
 
 end

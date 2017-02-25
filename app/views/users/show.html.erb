@@ -31,19 +31,19 @@
   <tbody>
     <% @user.recipients.each do |recipient| %>
       <% recipient.events.each do |event| %>
-        <% event.gifts.each do |gift| %>
+        <% event.orders.each do |order| %>
           <tr>
-          <% if gift.ordered && !gift.confirmed_delivery %>
+          <!-- <% if !order.confirmed_delivery %> -->
             <td>
               <%= recipient.first_name %>'s <%= event.occasion %>
             </td>
             <td>
-              <%= gift.tracking %>
+              <%= order.tracking_number %>
             </td>
             <td>
-              <%= link_to "confirm receipt" %>
+              <%= link_to "Confirm Receipt" %>
             </td>
-          <% end %>
+          <!-- <% end %> -->
           </tr>
         <% end %>
       <% end %>
