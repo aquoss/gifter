@@ -9,7 +9,6 @@ class CreateRecipients < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :state
       t.string :country
-      t.integer :user_id
       t.belongs_to :user, foreign_key: true
 
       t.timestamps

@@ -1,10 +1,52 @@
-<h1>Hi, <%= @user.first_name %></h1>
-<h3>Time to choose a gift!</h3>
-<% @recipients.each do |recipient| %>
-  <% recipient.events.each do |event| %>
-    <% if event.calendar_date < 14.days.from_now %>
-      <%= recipient.first_name %>
-      <%= event.occasion %>
+<h3>Hi, <%= @user.first_name %></h3>
+<table>
+  <thead>
+    <tr>
+      <td><h5>Time to choose a gift!</h5></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.recipients.each do |recipient| %>
+      <% recipient.events.each do |event| %>
+        <tr>
+        <% if event.calendar_date < 14.days.from_now %>
+          <td>
+            <%= recipient.first_name %>'s <%= event.occasion %>
+          </td>
+          <td>
+            <%= link_to "view gift choices" %>
+          </td>
+        <% end %>
+        </tr>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <td><h5>Ordered Gifts</h5></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.recipients.each do |recipient| %>
+      <% recipient.events.each do |event| %>
+        <% event.gifts.each do |gift| %>
+          <tr>
+          <% if gift.ordered && !gift.confirmed_delivery %>
+            <td>
+              <%= recipient.first_name %>'s <%= event.occasion %>
+            </td>
+            <td>
+              <%= gift.tracking %>
+            </td>
+            <td>
+              <%= link_to "confirm receipt" %>
+            </td>
+          <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
