@@ -10,7 +10,7 @@
     <% @user.recipients.each do |recipient| %>
       <li class="collection-item avatar">
         <img src="images/yuna.jpg" alt="" class="circle">
-        <span class="title"><strong><%= link_to "#{recipient.first_name} #{recipient.last_name}", recipient_path(@user, recipient) %></strong></span>
+        <span class="title"><strong><%= link_to "#{recipient.first_name} #{recipient.last_name}", recipient_path(recipient) %></strong></span>
         <p> Next Event: <%= nextEvent(recipient).occasion %><br>
           <%= nextEvent(recipient).calendar_date.strftime("%B %d, %Y") %>
         </p>

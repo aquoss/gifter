@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/users/:id/new', to: 'users#new', as: 'new_user'
   post '/users/:id/new', to: 'users#create'
 
-  get '/users/:user_id/recipients/:id', to: 'recipients#show', as: 'recipient'
-  post '/users/:user_id/recipients/:id/gift_ideas', to: 'gift_ideas#create', as: 'new_gift_idea'
+  get '/recipients/:id', to: 'recipients#show', as: 'recipient'
+  put '/recipients/:id', to: 'recipients#update'
 
   # post '/users/:id/payment', to: 'payment#create', as: 'payment'
 
