@@ -7,7 +7,7 @@ class GiftsController < ApplicationController
       count = 0
       gift.traits.each do |key, value|
         if recipient.traits.key == value
-          count ++
+          count += 1
         end
         matches.gift = count
       end
