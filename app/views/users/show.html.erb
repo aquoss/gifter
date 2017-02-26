@@ -1,52 +1,23 @@
 <h3>Hi, <%= @user.first_name %></h3>
-<table>
-  <thead>
-    <tr>
-      <td><h5>Time to choose a gift!</h5></td>
-    </tr>
-  </thead>
-  <tbody>
+
+<div class="row">
+  <%= render "upcoming_gifts" %>
+  <%= render "ordered_gifts" %>
+</div>
+
+<h5>Recipient View | Calendar View</h5>
+  <ul class="collection">
     <% @user.recipients.each do |recipient| %>
-      <% recipient.events.each do |event| %>
-        <tr>
-        <% if event.calendar_date < 14.days.from_now %>
-          <td>
-            <%= recipient.first_name %>'s <%= event.occasion %>
-          </td>
-          <td>
-            <%= link_to "view gift choices" %>
-          </td>
-        <% end %>
-        </tr>
-      <% end %>
+      <li class="collection-item avatar">
+        <img src="images/yuna.jpg" alt="" class="circle">
+        <span class="title"><strong><%= link_to "#{recipient.first_name} #{recipient.last_name}", recipient_path(@user, recipient) %></strong></span>
+        <p> Next Event: <%= nextEvent(recipient).occasion %><br>
+          <%= nextEvent(recipient).calendar_date.strftime("%B %d, %Y") %>
+        </p>
+        <button class="btn"><i class="material-icons">add</i> Gift Idea</button>
+      </li>
     <% end %>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
-      <td><h5>Ordered Gifts</h5></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user.recipients.each do |recipient| %>
-      <% recipient.events.each do |event| %>
-        <% event.orders.each do |order| %>
-          <tr>
-          <!-- <% if !order.confirmed_delivery %> -->
-            <td>
-              <%= recipient.first_name %>'s <%= event.occasion %>
-            </td>
-            <td>
-              <%= order.tracking_number %>
-            </td>
-            <td>
-              <%= link_to "Confirm Receipt" %>
-            </td>
-          <!-- <% end %> -->
-          </tr>
-        <% end %>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+    <li>
+      <%= link_to "New Recipient" %>
+    </li>
+  </ul>

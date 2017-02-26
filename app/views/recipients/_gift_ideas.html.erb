@@ -1,0 +1,17 @@
+<div class="card col m4 offset-m1">
+  <div class="card-content">
+    <span class="card-title">Gift Ideas</span>
+    <ol>
+      <% @recipient.gift_ideas.each do |gift| %>
+        <li type="square"><%= gift.idea %><br></li>
+      <% end %>
+    </ol>
+
+    <div class="row">
+      <%= form_for (@recipient.gift_ideas, url: new_gift_idea_path do |f| %>
+        <%= f.text_area "New Idea", class:"materialize-textarea" %>
+        <%= f.submit "Add" %>
+      <% end %>
+    </div>
+  </div>
+</div>

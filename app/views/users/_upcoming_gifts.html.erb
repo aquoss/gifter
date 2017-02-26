@@ -1,0 +1,25 @@
+<div class="card col s12 m6">
+  <table class="card-content">
+    <thead>
+      <tr>
+        <td class="card-title">Time to choose a gift!</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.recipients.each do |recipient| %>
+        <% recipient.events.each do |event| %>
+          <tr>
+          <% if event.calendar_date < 14.days.from_now %>
+            <td>
+              <%= recipient.first_name %>'s <%= event.occasion %>
+            </td>
+            <td>
+              <%= link_to "view gift choices" %>
+            </td>
+          <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

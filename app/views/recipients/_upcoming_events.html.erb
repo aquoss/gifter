@@ -1,0 +1,24 @@
+<div class="card col m7 s12">
+  <table class="card-content">
+    <thead>
+      <tr>
+        <td class="card-title">Upcoming Events</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% sortEvents(@recipient.events).each do |event| %>
+        <tr>
+          <td>
+            <%= event.occasion %>
+          </td>
+          <td>
+            <%= event.calendar_date.strftime("%B %d, %Y") %>
+          </td>
+          <td>
+            <%= link_to "Edit" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
