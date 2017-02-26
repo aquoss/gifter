@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: 'user'
 
-  get '/users/:id/new', to: 'users#new', as: 'new_user'
-  post '/users/:id/new', to: 'users#create'
+
+
 
   get '/recipients/:id', to: 'recipients#show', as: 'recipient'
   put '/recipients/:id', to: 'recipients#update'
