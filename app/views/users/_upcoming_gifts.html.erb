@@ -11,7 +11,7 @@
           <tr>
           <% if event.calendar_date < 14.days.from_now %>
             <td>
-              <%= recipient.first_name %>'s <%= event.occasion %>
+              <strong><%= recipient.first_name %></strong> - <%= event.occasion %>
             </td>
             <td>
               <%= link_to "view gift choices" %>
