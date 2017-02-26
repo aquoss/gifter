@@ -1,7 +1,8 @@
 module UsersHelper
 
-  def find_orders event
-    @orders = Order.find_by(event_id: event.id)
+  def nextEvent recipient
+    events = recipient.events.where('calendar_date > ?', Date.today).sort_by &:calendar_date
+    events.first 
   end
 
 end
