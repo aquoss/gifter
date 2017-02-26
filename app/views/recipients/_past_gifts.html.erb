@@ -1,0 +1,26 @@
+<div class="card col m7 s12">
+  <table class="card-content">
+    <thead>
+      <tr>
+        <td class="card-title">Past Gifts</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% sortPastEvents(@recipient.events).each do |event| %>
+        <tr>
+          <td>
+            <% event.gifts.each do |gift| %>
+              <%= gift.item %>
+            <% end %>
+          </td>
+          <td>
+            <%= event.occasion %>
+          </td>
+          <td>
+            <%= event.calendar_date.strftime("%B %d, %Y") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
