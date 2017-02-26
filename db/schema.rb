@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225023138) do
+ActiveRecord::Schema.define(version: 20170226025417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 20170225023138) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["recipient_id"], name: "index_events_on_recipient_id", using: :btree
-  end
-
-  create_table "gift_ideas", force: :cascade do |t|
-    t.text     "idea"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["recipient_id"], name: "index_gift_ideas_on_recipient_id", using: :btree
   end
 
   create_table "gifts", force: :cascade do |t|
@@ -63,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170225023138) do
     t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.text     "gift_ideas"
     t.index ["user_id"], name: "index_recipients_on_user_id", using: :btree
   end
 
@@ -129,7 +122,6 @@ ActiveRecord::Schema.define(version: 20170225023138) do
   end
 
   add_foreign_key "events", "recipients"
-  add_foreign_key "gift_ideas", "recipients"
   add_foreign_key "orders", "events"
   add_foreign_key "orders", "gifts"
   add_foreign_key "recipients", "users"
