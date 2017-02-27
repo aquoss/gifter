@@ -11,6 +11,13 @@ class EventsController < ApplicationController
     end
   end
 
+  def destroy
+    event = Event.find(params[:event_id])
+    event.destroy
+    flash[:notice] = "Event successfully deleted"
+    redirect_to recipient_path(params[:id])
+  end
+
   def event_params
     params.require(:event).permit(:occasion, :calendar_date, :recurring_yearly, :recipient_id)
   end

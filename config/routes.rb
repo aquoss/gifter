@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   patch '/recipients/:id/traits/:trait_id', to: 'traits#update', as: 'edit_traits'
 
   post '/recipients/:id/events', to: 'events#create', as: 'new_recipient_event'
+  delete '/recipients/:id/events/:event_id', to: 'events#destroy', as: 'delete_recipient_event'
 
 
   # post '/users/:id/payment', to: 'payment#create', as: 'payment'

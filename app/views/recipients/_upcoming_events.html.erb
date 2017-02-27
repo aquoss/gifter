@@ -15,7 +15,9 @@
             <%= event.calendar_date.strftime("%B %d, %Y") %>
           </td>
           <td>
-            <%= link_to "Edit" %>
+            <%= link_to delete_recipient_event_path(@recipient, event), method: :delete do %>
+              <i class="material-icons">delete_forever</i>
+            <% end %>
           </td>
         </tr>
       <% end %>
