@@ -5,19 +5,19 @@
   <%= render "ordered_gifts" %>
 </div>
 
-<h5>Recipient View | Calendar View</h5>
-  <ul class="collection">
-    <% @user.recipients.each do |recipient| %>
-      <li class="collection-item avatar">
-        <img src="images/yuna.jpg" alt="" class="circle">
-        <span class="title"><strong><%= link_to "#{recipient.first_name} #{recipient.last_name}", recipient_path(recipient) %></strong></span>
-        <p> Next Event: <%= nextEvent(recipient).occasion %><br>
-          <%= nextEvent(recipient).calendar_date.strftime("%B %d, %Y") %>
-        </p>
-        <button class="btn"><i class="material-icons">add</i> Gift Idea</button>
-      </li>
-    <% end %>
-    <li>
-      <%= link_to "New Recipient" %>
-    </li>
-  </ul>
+<div class="row">
+  <div class="col s12 view-tabs">
+    <ul class="tabs">
+      <li class="tab col s4 offset-s2"><a href="#recipient-view">Recipient View</a></li>
+      <li class="tab col s4"><a href="#calendar-view">Calendar View</a></li>
+    </ul>
+  </div>
+
+  <div id="calendar-view">
+    <%= render "calendar" %>
+  </div>
+
+  <div id="recipient-view">
+    <%= render "all_recipients" %>
+  </div>
+</div>

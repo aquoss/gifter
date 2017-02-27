@@ -37,6 +37,8 @@ gem 'devise'
 gem 'stripe'
 # materialize sass-rails
 gem 'materialize-sass'
+# calendar gem
+gem "simple_calendar", "~> 2.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
