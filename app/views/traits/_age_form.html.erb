@@ -1,23 +1,25 @@
 <%= form_for findTrait(@recipient), url: edit_traits_path do |f| %>
-  <div class="row">
-    <div class="col s12">
-      <br><h5>Age Range</h5>
-      <h6>How old is the recipient?</h6><br>
-      <%= f.radio_button :age, "infant" %>
-      <%= f.label :age_infant, "Infant" %> &emsp;
-      <%= f.radio_button :age, "child" %>
-      <%= f.label :age_child, "Child" %> &emsp;
-      <%= f.radio_button :age, "teenager" %>
-      <%= f.label :age_teenager, "Teenager" %> &emsp;
-      <%= f.radio_button :age, "young_adult" %>
-      <%= f.label :age_young_adult, "Young Adult" %> &emsp;
-      <%= f.radio_button :age, "adult" %>
-      <%= f.label :age_adult, "Adult" %> &emsp;
-      <%= f.radio_button :age, "senior" %>
-      <%= f.label :age_senior, "Senior" %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Update", class: "btn" %>
+  <div class="row card">
+    <div class="card-content">
+      <div class="col s12">
+        <br><h5>Age Range</h5>
+        <h6>How old is the recipient?</h6><br>
+        <%= f.radio_button :age, "infant" %>
+        <%= f.label :age_infant, "Infant" %> &emsp;
+        <%= f.radio_button :age, "child" %>
+        <%= f.label :age_child, "Child" %> &emsp;
+        <%= f.radio_button :age, "teenager" %>
+        <%= f.label :age_teenager, "Teenager" %> &emsp;
+        <%= f.radio_button :age, "young_adult" %>
+        <%= f.label :age_young_adult, "Young Adult" %> &emsp;
+        <%= f.radio_button :age, "adult" %>
+        <%= f.label :age_adult, "Adult" %> &emsp;
+        <%= f.radio_button :age, "senior" %>
+        <%= f.label :age_senior, "Senior" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Update", class: "btn btn-small" %>
+      </div>
     </div>
   </div>
 <% end %>
