@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226025417) do
+ActiveRecord::Schema.define(version: 20170227060436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,12 +71,6 @@ ActiveRecord::Schema.define(version: 20170226025417) do
     t.boolean  "music"
     t.boolean  "travel"
     t.boolean  "outdoor_activities"
-    t.boolean  "infant"
-    t.boolean  "child"
-    t.boolean  "teenager"
-    t.boolean  "young_adult"
-    t.boolean  "adult"
-    t.boolean  "senior"
     t.boolean  "female"
     t.boolean  "male"
     t.boolean  "cheapest_price"
@@ -87,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170226025417) do
     t.integer  "traitable_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "age"
     t.index ["traitable_type", "traitable_id"], name: "index_traits_on_traitable_type_and_traitable_id", using: :btree
   end
 
