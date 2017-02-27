@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   get '/recipients/:id', to: 'recipients#show', as: 'recipient'
+  get '/recipients/:id/edit', to: 'recipients#edit', as: 'edit_recipient'
   put '/recipients/:id', to: 'recipients#update'
+  put '/recipients/:id/traits', to: 'traits#update', as: 'edit_traits'
+
+  get '/recipients/:id/events', to: 'events#new', as: 'new_recipient_event'
+
 
   # post '/users/:id/payment', to: 'payment#create', as: 'payment'
 

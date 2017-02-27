@@ -11,4 +11,8 @@ module RecipientsHelper
     sorted.reverse
   end
 
+  def findTrait recipient
+    recipient.traits.first
+  end
+
 end

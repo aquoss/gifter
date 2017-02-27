@@ -4,6 +4,10 @@ class RecipientsController < ApplicationController
     @recipient = Recipient.find(params[:id])
   end
 
+  def edit
+    @recipient = Recipient.find(params[:id])
+  end
+
   def update
     recipient = Recipient.find(params[:id])
     if recipient.update(recipient_params)

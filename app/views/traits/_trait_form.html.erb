@@ -1,0 +1,43 @@
+<%= form_for findTrait(@recipient), url: edit_traits_path do |f| %>
+  <div class="row">
+    <div class="col s12">
+      <h5>Interests</h5>
+      <h6>Which of the following interests and/or traits describe your recipient?</h6><br>
+    </div>
+    <div class="field col s12">
+      <div class="col s3">
+        <%= f.check_box :reading, id: "reading" %>
+        <%= f.label :reading, for:"reading" %><br>
+        <%= f.check_box :film, id: "film" %>
+        <%= f.label :film, for:"film" %><br>
+        <%= f.check_box :cooking, id: "cooking" %>
+        <%= f.label :cooking, for:"cooking" %>
+      </div>
+      <div class="col s3">
+        <%= f.check_box :art, id: "art" %>
+        <%= f.label :art, for:"art" %><br>
+        <%= f.check_box :electronics, id: "electronics" %>
+        <%= f.label :electronics, for:"electronics" %><br>
+        <%= f.check_box :sports, id: "sports" %>
+        <%= f.label :sports, for:"sports" %>
+      </div>
+      <div class="col s3">
+        <%= f.check_box :fashion, id: "fashion" %>
+        <%= f.label :fashion, for:"fashion" %><br>
+        <%= f.check_box :gaming, id: "gaming" %>
+        <%= f.label :gaming, for:"gaming" %><br>
+        <%= f.check_box :music, id: "music" %>
+        <%= f.label :music, for:"music" %>
+      </div>
+      <div class="col s3">
+        <%= f.check_box :travel, id: "travel" %>
+        <%= f.label :travel, for:"travel" %><br>
+        <%= f.check_box :outdoor_activities, id: "outdoor_activities" %>
+        <%= f.label :outdoor_activities, for:"outdoor_activities" %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update", class: "btn" %>
+    </div>
+  </div>
+<% end %>

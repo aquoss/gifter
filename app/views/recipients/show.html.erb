@@ -1,4 +1,6 @@
 <h3><%= @recipient.first_name %> <%=@recipient.last_name %></h3>
+<%= link_to "Edit Recipient Info", edit_recipient_path(@recipient) %> |
+<%= link_to "Add Calendar Event", new_recipient_event_path %>
 <div class="row">
   <%= render "upcoming_events" %>
   <%= render "gift_ideas" %>

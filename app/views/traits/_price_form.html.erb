@@ -1,0 +1,21 @@
+<%= form_for findTrait(@recipient), url: edit_traits_path do |f| %>
+  <div class="row">
+    <div class="col s12">
+      <br><h5>Price Preference</h5>
+      <h6>What gift prices are you interested in seeing for this person? <small>(Choose all that apply)</small></h6><br>
+    </div>
+    <div class="field col s12">
+      <%= f.check_box :cheapest_price, id: "cheap" %>
+      <%= f.label "$ 0 - 25", for:"cheap" %> &emsp;
+      <%= f.check_box :low_price, id: "low" %>
+      <%= f.label "$ 25 - 50", for:"low" %> &emsp;
+      <%= f.check_box :med_price, id: "med" %>
+      <%= f.label "$ 50 - 75", for:"med" %> &emsp;
+      <%= f.check_box :high_price, id: "high" %>
+      <%= f.label "$ 75 - 100", for:"high" %> &emsp;
+    </div>
+    <div class="actions">
+      <%= f.submit "Update", class: "btn" %>
+    </div>
+  </div>
+<% end %>
