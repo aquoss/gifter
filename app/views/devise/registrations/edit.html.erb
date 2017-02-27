@@ -1,34 +1,83 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit Account</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <div class="row">
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
+
+    <div class="field">
+      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+    <h5>Reminder Preferences</h5>
+    <p>What type(s) of reminders would you like to receive when it is time to choose a gift?</p>
+    <div>
+      <%= f.check_box :email_reminder, id: "email" %>
+      <%= f.label "Email Reminder", for:"email" %><br>
+      <%= f.check_box :sms_reminder, id: "sms" %>
+      <%= f.label "Text Reminder", for:"sms" %>
+    </div>
+    <div class="field col m6 s12">
+      <%= f.label "Phone Number" %>
+      <%= f.text_field :phone_number %>
+    </div>
+    <div class="field col m6 s12">
+      <%= f.label "Phone Carrier" %>
+      <%= f.select :phone_carrier, options_for_select([['AT&T','at&t'],['Boost Mobile','boost'],['Virgin Mobile', 'virgin'],['Sprint','sprint'],['T-Mobile','t-mobile'],['Verizon','verizon']]) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+  <div class="row">
+    <h5>Shipping Information <small>(optional)</small></h5>
+    <p>Fill out this portion if you ever want gifts to be shipped directly to you, rather than to the recipient.</p>
+    <div class="field col m6 s12">
+      <%= f.label "Street Address" %>
+      <%= f.text_field :address_line_1 %>
+    </div>
+    <div class="field col m6 s12">
+      <%= f.label "Apt/Ste, PO Box (optional)" %>
+      <%= f.text_field :address_line_2 %>
+    </div>
+    <div class="field col m6 s12">
+      <%= f.label "City" %>
+      <%= f.text_field :city %>
+    </div>
+    <div class="field col m6 s12">
+      <%= f.label "State" %>
+      <%= f.text_field :state %>
+    </div>
+    <div class="field col m6 s12">
+      <%= f.label "Country" %>
+      <%= f.text_field :country %>
+    </div>
+    <div class="field col m6 s12">
+      <%= f.label "Zip Code" %>
+      <%= f.text_field :zip_code %>
+    </div>
   </div>
 
   <div class="actions">
