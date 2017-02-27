@@ -2,6 +2,7 @@
 <ul id="dropdown1" class="dropdown-content">
   <% if user_signed_in? %>
     <li><%= link_to "Home", user_path(current_user.id) %></li>
+    <li><%= link_to "Account Settings", edit_user_registration_path %></li>
     <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
   <% else %>
     <li><%= link_to "Create Account", new_user_registration_path %></li>

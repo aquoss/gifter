@@ -12,11 +12,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     user_path(user)
   end
-
-  # def after_sign_out_path_for(resource_or_scope)
-  #   new_user_session_path
-  # end
-
+  
   protected
 
   def configure_permitted_parameters
@@ -26,10 +22,3 @@ class ApplicationController < ActionController::Base
 end
 
 # before_action :authenticate_user! add into any controller that you want to be blocked to logged in users only
-
-
-
-# The path used after sign up for inactive accounts.
-# def after_inactive_sign_up_path_for(resource)
-#   super(resource)
-# end
