@@ -1,4 +1,5 @@
-<%= form_for findTrait(@recipient), url: edit_traits_path do |f| %>
+<% findTrait(@recipient) %>
+<%= form_for @trait, url: edit_traits_path(@recipient, @trait) do |f| %>
   <div class="row card">
     <div class="card-content">
       <div class="col s12">

@@ -2,7 +2,7 @@
   <div class="card-content">
     <span class="card-title">Gift Ideas</span>
       <p>
-        <%= form_for @recipient, html: {method: :put}, url: recipient_path do |f| %>
+        <%= form_for @recipient, url: recipient_path do |f| %>
           <%= f.text_area :gift_ideas, class:"materialize-textarea", placeholder:"New idea..." %>
           <%= f.submit "Save Changes", class:"btn" %>
         <% end %>

@@ -11,17 +11,14 @@ class RecipientsController < ApplicationController
   def update
     recipient = Recipient.find(params[:id])
     if recipient.update(recipient_params)
-      redirect_to recipient_path(recipient)
+      flash[:notice] = "Successfully updated!"
+      redirect_to(:back)
     else
       flash[:error] = recipient.errors.full_messages.join(". ")
-      # redirect_to edit_city_post_path(@city, post)
+      redirect_to(:back)
     end
   end
 
-  def update_ideas
-    recipient = Recipient.find(params[:id])
-    recipient.update(recipient_params)
-  end
 
   private
   def recipient_params

@@ -12,7 +12,7 @@ module RecipientsHelper
   end
 
   def findTrait recipient
-    recipient.traits.first
+    @trait = recipient.traits.first
   end
 
 end

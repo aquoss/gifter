@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   get '/recipients/:id', to: 'recipients#show', as: 'recipient'
   get '/recipients/:id/edit', to: 'recipients#edit', as: 'edit_recipient'
-  put '/recipients/:id', to: 'recipients#update'
-  put '/recipients/:id/traits', to: 'traits#update', as: 'edit_traits'
+  patch '/recipients/:id', to: 'recipients#update'
+  patch '/recipients/:id/traits/:trait_id', to: 'traits#update', as: 'edit_traits'
 
   get '/recipients/:id/events', to: 'events#new', as: 'new_recipient_event'
 
