@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   patch '/recipients/:id', to: 'recipients#update'
   patch '/recipients/:id/traits/:trait_id', to: 'traits#update', as: 'edit_traits'
 
-  get '/recipients/:id/events', to: 'events#new', as: 'new_recipient_event'
+  post '/recipients/:id/events', to: 'events#create', as: 'new_recipient_event'
 
 
   # post '/users/:id/payment', to: 'payment#create', as: 'payment'

@@ -1,0 +1,23 @@
+<% newEvent %>
+<%= form_for @event, url: new_recipient_event_path(@recipient) do |f| %>
+
+    <div class="card z-depth-0">
+      <div class="card-content col s12">
+        <h5 class="card-title">New Event</h5>
+        <%= f.hidden_field :recipient_id, value: @recipient.id %>
+        <%= f.label :occasion %>
+        <%= f.text_field :occasion %>
+        <%= f.label :calendar_date %>
+        <%= f.date_field :calendar_date, class:"datepicker" %>
+        <%= f.label "Recurring yearly?" %>
+        <%= f.radio_button :recurring_yearly, "yes" %>
+        <%= f.label :recurring_yearly_yes, "Yes" %>
+        <%= f.radio_button :recurring_yearly, "no" %>
+        <%= f.label :recurring_yearly_no, "No" %>
+
+      <div class="actions">
+        <%= f.submit "Update", class: "btn btn-small" %>
+      </div>
+    </div>
+  </div>
+<% end %>

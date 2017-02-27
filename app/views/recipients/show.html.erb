@@ -1,10 +1,25 @@
 <h3><%= @recipient.first_name %> <%=@recipient.last_name %></h3>
-<%= link_to "Edit Recipient Info", edit_recipient_path(@recipient) %> |
-<%= link_to "Add Calendar Event", new_recipient_event_path %>
+<%= link_to "Edit Recipient Info", edit_recipient_path(@recipient), class: "btn" %> <br>
+
 <div class="row">
-  <%= render "upcoming_events" %>
+  <div class="col s12 m7">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s4"><a href="#view-events">View Events</a></li>
+        <li class="tab col s4"><a href="add-event">Add Event</a></li>
+      </ul>
+    </div>
+
+
+    <!-- <%= link_to "Add Calendar Event", new_recipient_event_path %> -->
+    <div id="view-events">
+      <%= render "upcoming_events" %>
+      <%= render "past_events" %>
+    </div>
+    <div id="add-event">
+      <%= render "events/new_event" %>
+    </div>
+  </div>
   <%= render "gift_ideas" %>
-</div>
-<div class="row">
-  <%= render "past_gifts" %>
+
 </div>
