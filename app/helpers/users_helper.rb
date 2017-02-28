@@ -6,7 +6,11 @@ module UsersHelper
   end
 
   def allEvents recipient
-    @events = recipient.events    ##self.my_related_model.start
+    @events = recipient.events
+  end
+
+  def newRecipient
+    @recipient = Recipient.new
   end
 
 end

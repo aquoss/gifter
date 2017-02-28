@@ -1,15 +1,36 @@
-<ul class="collection">
-  <% @user.recipients.each do |recipient| %>
-    <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
-      <span class="title"><strong><%= link_to "#{recipient.first_name} #{recipient.last_name}", recipient_path(recipient) %></strong></span>
-      <p> Next Event: <%= nextEvent(recipient).occasion %><br>
-        <%= nextEvent(recipient).calendar_date.strftime("%B %d, %Y") %>
-      </p>
-      <button class="btn"><i class="material-icons">add</i> Gift Idea</button>
-    </li>
-  <% end %>
-  <li>
-    <%= link_to "New Recipient" %>
-  </li>
-</ul>
+<div class="col s12 card">
+  <div class="card-content">
+    <h5>All Recipients</h5>
+    <ul class="collection col s7">
+      <% @user.recipients.each do |recipient| %>
+        <% if recipient %>
+          <li class="collection-item avatar">
+            <img src="images/yuna.jpg" alt="" class="circle">
+            <span class="title"><strong><%= link_to "#{recipient.first_name} #{recipient.last_name}", recipient_path(recipient) %></strong></span>
+            <% if nextEvent(recipient) %>
+              <p> Next Event: <%= nextEvent(recipient).occasion %><br>
+                <%= nextEvent(recipient).calendar_date.strftime("%B %d, %Y") %>
+              </p>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    <div class="col s4 offset-s1">
+      <h6>Create New Recipient</h6>
+      <% newRecipient %>
+      <%= form_for @recipient, url: new_recipient_path(@user) do |f| %>
+        <%= f.hidden_field :user_id, value: @user.id %>
+        <div class="input-field">
+          <%= f.text_field :first_name %>
+          <%= f.label :first_name %>
+        </div>
+        <div class="input-field">
+          <%= f.text_field :last_name %>
+          <%= f.label :last_name %>
+        </div>
+        <%= f.submit "Create", class: "btn create-btn-small" %>
+      <% end %>
+    </div>
+  </div>
+</div>

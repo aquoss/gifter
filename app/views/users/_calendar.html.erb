@@ -1,12 +1,16 @@
-<% @user.recipients.each do |recipient| %>
-  <% allEvents(recipient) %>
-  <%= month_calendar events: @events, attribute: :calendar_date do |date, events| %>
-    <%= date.strftime("%d") %>
-    <% events.each do |event| %>
-      <div>
-        <strong><%= recipient.first_name %></strong><br>
-        <%= event.occasion %>
-      </div>
+<div class="col s12 card">
+  <div class="card-content">
+    <% @user.recipients.each do |recipient| %>
+      <% allEvents(recipient) %>
+      <%= month_calendar events: @events, attribute: :calendar_date do |date, events| %>
+        <%= date.strftime("%d") %>
+        <% events.each do |event| %>
+          <div>
+            <strong><%= recipient.first_name %></strong><br>
+            <%= event.occasion %>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
+  </div>
+</div>

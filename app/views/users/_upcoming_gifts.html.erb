@@ -8,16 +8,18 @@
     <tbody>
       <% @user.recipients.each do |recipient| %>
         <% recipient.events.each do |event| %>
-          <tr>
-          <% if event.calendar_date < 14.days.from_now %>
-            <td>
-              <strong><%= recipient.first_name %></strong> - <%= event.occasion %>
-            </td>
-            <td>
-              <%= link_to "view gift choices" %>
-            </td>
+          <% if event %>
+            <tr>
+            <% if event.calendar_date < 14.days.from_now %>
+              <td>
+                <strong><%= recipient.first_name %></strong> - <%= event.occasion %>
+              </td>
+              <td>
+                <%= link_to "view gift choices" %>
+              </td>
+            <% end %>
+            </tr>
           <% end %>
-          </tr>
         <% end %>
       <% end %>
     </tbody>

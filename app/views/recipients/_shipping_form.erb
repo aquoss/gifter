@@ -1,18 +1,5 @@
 <%= form_for @recipient do |f| %>
 
-  <% if !@recipient.first_name %>
-    <div class="row">
-      <div class="col m6 s12">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
-      </div>
-      <div>
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
-      </div>
-    </div>
-  <% end %>
-
   <div class="row card">
     <div class="card-content">
       <div class="col s12">

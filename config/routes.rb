@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   get '/recipients/:id', to: 'recipients#show', as: 'recipient'
+  post 'users/:id/recipients', to: 'recipients#create', as: 'new_recipient'
   get '/recipients/:id/edit', to: 'recipients#edit', as: 'edit_recipient'
   patch '/recipients/:id', to: 'recipients#update'
   patch '/recipients/:id/traits/:trait_id', to: 'traits#update', as: 'edit_traits'

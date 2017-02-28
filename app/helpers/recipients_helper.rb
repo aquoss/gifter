@@ -19,4 +19,8 @@ module RecipientsHelper
     @event = Event.new
   end
 
+  def newTrait
+    @trait = Trait.new
+  end
+
 end
