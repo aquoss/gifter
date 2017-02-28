@@ -5,12 +5,17 @@ module UsersHelper
     events.first
   end
 
-  def allEvents recipient
-    @events = recipient.events
-  end
-
   def newRecipient
     @recipient = Recipient.new
   end
+
+  def calendarEvents user
+    recipient_ids = []
+    user.recipients.each do |recipient|
+      recipient_ids << recipient.id
+    end
+    @calendar_events = Event.where(recipient_ids.include? :recipient_id)
+  end
+
 
 end
