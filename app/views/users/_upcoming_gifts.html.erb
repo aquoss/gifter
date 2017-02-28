@@ -10,12 +10,12 @@
         <% recipient.events.each do |event| %>
           <% if event %>
             <tr>
-            <% if event.calendar_date < 14.days.from_now %>
+            <% if event.calendar_date < 14.days.from_now && event.calendar_date > 1.day.ago %>
               <td>
                 <strong><%= recipient.first_name %></strong> - <%= event.occasion %>
               </td>
               <td>
-                <%= link_to "view gift choices" %>
+                <%= link_to "view gift choices", gift_path(recipient, event) %>
               </td>
             <% end %>
             </tr>

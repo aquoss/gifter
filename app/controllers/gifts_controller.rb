@@ -1,18 +1,31 @@
 class GiftsController < ApplicationController
 
+  def index
+    getRecommendations
+  end
+
   def getRecommendations
-    recipient = find_by_id(params[:id])
+    recipient = Recipient.find(params[:id])
+    rec_traits = recipient.traits.map(&:attributes).first
     matches = {}
-    Gifts.all.each do |gift|
+    Gift.all.each do |gift|
       count = 0
-      gift.traits.each do |key, value|
-        if recipient.traits.key == value
+      gift_traits = gift.traits.map(&:attributes).first
+      gift_traits.each do |key, value|
+        if rec_traits[key] == value
           count += 1
         end
-        matches.gift = count
       end
+      matches[gift.id] = count
     end
-    @top_gifts = matches.sort_by{|k,v| -v}[0..10].to_h
+    top_gifts = matches.sort_by{|k,v| -v}[0..10].to_h
+
+    gift_ids = []
+    top_gifts.each do |k,v|
+      gift_ids << k
+    end
+    @gift_recs = Gift.find(gift_ids)
   end
+
 
 end

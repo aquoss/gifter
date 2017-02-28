@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/recipients/:id/events', to: 'events#create', as: 'new_recipient_event'
   delete '/recipients/:id/events/:event_id', to: 'events#destroy', as: 'delete_recipient_event'
 
+  get '/recipients/:id/events/:event_id/gifts', to: 'gifts#index', as: 'gift'
 
   # post '/users/:id/payment', to: 'payment#create', as: 'payment'
 
