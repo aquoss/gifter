@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227060436) do
+ActiveRecord::Schema.define(version: 20170301051748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20170227060436) do
     t.boolean  "confirmed_delivery"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.text     "gift_message"
+    t.float    "total_price"
     t.index ["event_id"], name: "index_orders_on_event_id", using: :btree
     t.index ["gift_id"], name: "index_orders_on_gift_id", using: :btree
   end
