@@ -34,7 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # for auth
 gem 'devise'
 # for payment
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+
 # materialize sass-rails
 gem 'materialize-sass'
 # calendar gem
@@ -47,6 +49,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'ffaker', '~> 2.2'
+  gem 'dotenv-rails'
 end
 
 group :development do

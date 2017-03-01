@@ -16,12 +16,16 @@ Rails.application.routes.draw do
   delete '/recipients/:id/events/:event_id', to: 'events#destroy', as: 'delete_recipient_event'
 
   get '/recipients/:id/events/:event_id/gifts', to: 'gifts#index', as: 'gift'
+  get '/recipients/:id/events/:event_id/gift/:gift_id/charges', to: 'charges#new', as: 'new_charge'
+  post '/recipients/:id/events/:event_id/gift/:gift_id/charges', to: 'charges#create'
 
-  # post '/users/:id/payment', to: 'payment#create', as: 'payment'
-
-  # get '/users/:id/payment/new', to: 'payment#new', as: 'new_payment'
-
-  # get '/users/:id/charges', to: 'charges#index', as: 'charges'
-  # post '/users/:id/charges', to: 'charges#create'
+  # get '/charges', to: 'charges#index', as: 'charges'
+  # post '/charges', to: 'charges#create', as: 'charges'
+  # get '/charges/new', to: 'charges#new', as: 'new_charge'
+  get '/charges/:id/edit', to: 'charges#edit', as: 'edit_charge'
+  get '/charges/:id', to: 'charges#show', as: 'charge'
+  patch '/charges/:id', to: 'charges#update'
+  put '/charges/:id', to: 'charges#update'
+  delete '/charges/:id', to: 'charges#destroy'
 
 end

@@ -2,6 +2,7 @@ class GiftsController < ApplicationController
 
   def index
     @recipient = Recipient.find(params[:id])
+    @event = Event.find(params[:event_id])
     getRecommendations @recipient
   end
 

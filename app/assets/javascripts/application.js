@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
+//= require stripe.js
 //= require_tree .

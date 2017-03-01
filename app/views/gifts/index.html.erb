@@ -11,7 +11,7 @@
           <%= gift.price %>
         </div>
         <div class="card-action">
-          <%= link_to "Select me!" %>
+          <%= link_to "Select me!", new_charge_path(@recipient, @event, gift) %>
         </div>
       </div>
     </div>
