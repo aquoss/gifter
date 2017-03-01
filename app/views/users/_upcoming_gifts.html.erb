@@ -3,12 +3,13 @@
     <thead>
       <tr>
         <td class="card-title">Time to choose a gift!</td>
+          <!-- No upcoming gifts! If you want to schedule a gift, choose the recipient from the list below, or add a new recipient. -->
       </tr>
     </thead>
     <tbody>
       <% @user.recipients.each do |recipient| %>
         <% recipient.events.each do |event| %>
-          <% if event %>
+          <% if event && !event.orders %>
             <tr>
             <% if event.calendar_date < 14.days.from_now && event.calendar_date > 1.day.ago %>
               <td>
@@ -19,6 +20,7 @@
               </td>
             <% end %>
             </tr>
+            <% else %>
           <% end %>
         <% end %>
       <% end %>

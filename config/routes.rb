@@ -21,12 +21,7 @@ Rails.application.routes.draw do
 
   get '/recipients/:id/events/:event_id/gifts/:gift_id/orders', to: 'orders#new', as: 'new_order'
   post '/recipients/:id/events/:event_id/gifts/:gift_id/orders', to: 'orders#create'
+  patch '/users/:id/orders/:order_id', to: 'orders#update', as: 'edit_order'
 
-
-  # get '/charges/:id/edit', to: 'charges#edit', as: 'edit_charge'
-  # get '/charges/:id', to: 'charges#show', as: 'charge'
-  # patch '/charges/:id', to: 'charges#update'
-  # put '/charges/:id', to: 'charges#update'
-  # delete '/charges/:id', to: 'charges#destroy'
 
 end

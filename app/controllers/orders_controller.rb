@@ -22,6 +22,17 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    order = Order.find(params[:order_id])
+    if order.update_attributes(:confirmed_delivery => true)
+      flash[:notice] = "Thanks for confirming!"
+      redirect_to user_path(current_user)
+    else
+      flash[:error] = order.errors.full_messages.join(". ")
+      redirect_to user_path(current_user)
+    end
+  end
+
   private
   def order_params
     params.require(:order).permit(:first_name, :last_name, :address_line_1, :address_line_2, :city, :state, :zip_code, :country, :event_id, :gift_id, :gift_message, :total_price, :gift_id, :event_id)

@@ -10,7 +10,7 @@
         <% recipient.events.each do |event| %>
           <% event.orders.each do |order| %>
             <tr>
-            <!-- <% if !order.confirmed_delivery %> -->
+            <% if !order.confirmed_delivery %>
               <td>
                 <strong><%= recipient.first_name %></strong> - <%= event.occasion %>
               </td>
@@ -18,9 +18,9 @@
                 <%= order.tracking_number %>
               </td>
               <td>
-                <%= link_to "Confirm Receipt" %>
+                <%= link_to "Confirm Receipt", edit_order_path(@user, order), :method => :patch %>
               </td>
-            <!-- <% end %> -->
+            <% end %>
             </tr>
           <% end %>
         <% end %>
