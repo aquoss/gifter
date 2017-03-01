@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   get '/recipients/:id/events/:event_id/gifts/:gift_id/charges', to: 'charges#new', as: 'new_charge'
   post '/recipients/:id/events/:event_id/gifts/:gift_id/charges', to: 'charges#create'
 
-  post '/events/:event_id/gifts/:gift_id/orders', to: 'orders#create', as: 'new_order'
+  get '/recipients/:id/events/:event_id/gifts/:gift_id/orders', to: 'orders#new', as: 'new_order'
+  post '/recipients/:id/events/:event_id/gifts/:gift_id/orders', to: 'orders#create'
 
 
   # get '/charges/:id/edit', to: 'charges#edit', as: 'edit_charge'

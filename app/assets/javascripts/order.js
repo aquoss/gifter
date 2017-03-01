@@ -21,7 +21,9 @@ $(document).ready(function(){
     }
   })
 
-  // $('#order-form').trigger('submit.rails');
+  // $('.Button-animationWrapper-child--primary').click(function(){
+  //   $('#order-form').trigger('submit.rails');
+  // })
 
 
 })

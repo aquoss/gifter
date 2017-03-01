@@ -1,0 +1,42 @@
+<h4>Chosen gift for <%= @recipient.first_name %></h4>
+<%= render "shipping_addresses" %>
+
+<%= form_for @order, url: new_order_path(@recipient, @event, @gift) do |f| %>
+  <div class="row">
+    <%= render "./gifts/chosen_gift" %>
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-content">
+          <div class="row">
+            <h5 class="col s12">Choose your shipping address</h5>
+            <div class="col l7 m10 s12">
+              <small>* Expected delivery time: 5-7 business days</small>
+              <select id="shipping-select">
+                <option disabled selected>Select one</option>
+                <option value="1">Ship to <%= @recipient.first_name %></option>
+                <option value="2">Ship to yourself</option>
+              </select>
+            </div>
+            <%= f.hidden_field :gift_id, value: "#{@gift.id}" %>
+            <%= f.hidden_field :event_id, value: "#{@event.id}" %>
+            <%= f.hidden_field :first_name, id: "select-first-name"%>
+            <%= f.hidden_field :last_name, id: "select-last-name" %>
+            <%= f.hidden_field :address_line_1, id: "select-address-line-1" %>
+            <%= f.hidden_field :address_line_2, id: "select-address-line-2" %>
+            <%= f.hidden_field :zip_code, id: "select-zip-code" %>
+            <%= f.hidden_field :city, id: "select-city" %>
+            <%= f.hidden_field :state, id: "select-state" %>
+            <%= f.hidden_field :country, id: "select-country" %>
+            <%= f.hidden_field :total_price, value: "#{@amount}" %>
+          </div>
+          <h5>Add a gift message</h5>
+          <div class="input-field">
+            <%= f.text_field :gift_message %>
+            <%= f.label "Optional Gift Message" %>
+          </div>
+          <%= f.submit "Submit order and continue", class: "btn btn-small" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
