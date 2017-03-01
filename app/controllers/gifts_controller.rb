@@ -1,11 +1,11 @@
 class GiftsController < ApplicationController
 
   def index
-    getRecommendations
+    @recipient = Recipient.find(params[:id])
+    getRecommendations @recipient
   end
 
-  def getRecommendations
-    recipient = Recipient.find(params[:id])
+  def getRecommendations recipient
     rec_traits = recipient.traits.map(&:attributes).first
     matches = {}
     Gift.all.each do |gift|

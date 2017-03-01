@@ -1,1 +1,19 @@
-<%= @gift_recs %>
+<h4>Choose a gift for <%= @recipient.first_name %></h4>
+<div class="row">
+  <% @gift_recs.each do |gift| %>
+    <div class="col m6 l4">
+      <div class="card">
+        <div class="card-image">
+          <img src="http://www.shzongyue.com/data/out/97/39543346-present.jpg">
+        </div>
+        <div class="card-content">
+          <strong><%= gift.item %></strong><br>
+          <%= gift.price %>
+        </div>
+        <div class="card-action">
+          <%= link_to "Select me!" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
