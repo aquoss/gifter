@@ -4,11 +4,20 @@ class ChargesController < ApplicationController
     @event = Event.find(params[:event_id])
     @recipient = Recipient.find(params[:id])
     @amount = @gift.price + 3.99
+    @order = Order.new
   end
 
   def create
     gift = Gift.find(params[:gift_id])
     amount = gift.price * 100 + 399
+
+    # if event.save
+    #   flash[:notice] = "New event created!"
+    #   redirect_to recipient_path(params[:id])
+    # else
+    #   flash[:error] = event.errors.full_messages.join(". ")
+    #   redirect_to recipient_path(params[:id])
+    # end
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],

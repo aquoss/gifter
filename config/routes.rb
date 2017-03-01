@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
 
   get '/recipients/:id', to: 'recipients#show', as: 'recipient'
-  post 'users/:id/recipients', to: 'recipients#create', as: 'new_recipient'
+  post '/users/:id/recipients', to: 'recipients#create', as: 'new_recipient'
   get '/recipients/:id/edit', to: 'recipients#edit', as: 'edit_recipient'
   patch '/recipients/:id', to: 'recipients#update'
   patch '/recipients/:id/traits/:trait_id', to: 'traits#update', as: 'edit_traits'
@@ -16,16 +16,16 @@ Rails.application.routes.draw do
   delete '/recipients/:id/events/:event_id', to: 'events#destroy', as: 'delete_recipient_event'
 
   get '/recipients/:id/events/:event_id/gifts', to: 'gifts#index', as: 'gift'
-  get '/recipients/:id/events/:event_id/gift/:gift_id/charges', to: 'charges#new', as: 'new_charge'
-  post '/recipients/:id/events/:event_id/gift/:gift_id/charges', to: 'charges#create'
+  get '/recipients/:id/events/:event_id/gifts/:gift_id/charges', to: 'charges#new', as: 'new_charge'
+  post '/recipients/:id/events/:event_id/gifts/:gift_id/charges', to: 'charges#create'
 
-  # get '/charges', to: 'charges#index', as: 'charges'
-  # post '/charges', to: 'charges#create', as: 'charges'
-  # get '/charges/new', to: 'charges#new', as: 'new_charge'
-  get '/charges/:id/edit', to: 'charges#edit', as: 'edit_charge'
-  get '/charges/:id', to: 'charges#show', as: 'charge'
-  patch '/charges/:id', to: 'charges#update'
-  put '/charges/:id', to: 'charges#update'
-  delete '/charges/:id', to: 'charges#destroy'
+  post '/events/:event_id/gifts/:gift_id/orders', to: 'orders#create', as: 'new_order'
+
+
+  # get '/charges/:id/edit', to: 'charges#edit', as: 'edit_charge'
+  # get '/charges/:id', to: 'charges#show', as: 'charge'
+  # patch '/charges/:id', to: 'charges#update'
+  # put '/charges/:id', to: 'charges#update'
+  # delete '/charges/:id', to: 'charges#destroy'
 
 end

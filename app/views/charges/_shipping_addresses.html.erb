@@ -1,0 +1,21 @@
+<%= content_tag(:div, "", data:{
+  first_name: current_user.first_name,
+  last_name: current_user.last_name,
+  address_line_1: current_user.address_line_1,
+  address_line_2: current_user.address_line_2,
+  zip_code: current_user.zip_code,
+  city: current_user.city,
+  state: current_user.state,
+  country: current_user.country
+  }, hidden: true, id: "user-address") %>
+  
+<%= content_tag(:div, "", data:{
+  first_name: @recipient.first_name,
+  last_name: @recipient.last_name,
+  address_line_1: @recipient.address_line_1,
+  address_line_2: @recipient.address_line_2,
+  zip_code: @recipient.zip_code,
+  city: @recipient.city,
+  state: @recipient.state,
+  country: @recipient.country
+  }, hidden: true, id: "recipient-address") %>
