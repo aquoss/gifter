@@ -35,7 +35,7 @@ end
 Gift.create(gift_data)
 
 
-(1..48).each do |num|
+(1..40).each do |num|
   Trait.create(
     reading: FFaker::Boolean.random,
     film: FFaker::Boolean.random,
