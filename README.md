@@ -3,7 +3,7 @@
 Gifter is an event scheduling and gift recommendation app. It helps you keep track of the important people in your life, and makes finding the right gift for that one special person a breeze. Simply create a profile for a recipient, and then Gifter will recommend items to send their way when an occasion comes up!
 
 ## Deployment
-This app is deployed on Heroku. [Check it out!](https://stark-anchorage-54987.herokuapp.com/)
+This app is deployed on Heroku. [Check it out!](https://app-gifter.herokuapp.com/)
 
 ![alt-text](Homepage.png)
 
