@@ -1,3 +1,17 @@
 // Place all the styles related to the Registrations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lowercase-btn {
+  line-height: 0px;
+  margin: 10px 0 10px 0;
+  padding: 0 1rem;
+  text-transform: capitalize;
+  height: 30px;
+  width: auto;
+  font-size: .9em;
+}
+
+.devise-card {
+  margin-top: 50px;
+}

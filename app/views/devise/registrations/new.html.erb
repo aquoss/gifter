@@ -1,87 +1,91 @@
-<div class="row">
-  <div class="col s8 offset-s2">
-    <h3>Sign up</h3>
+<body id="signup">
+  <div class="row">
+    <div class="col s8 offset-s2 card devise-card">
+      <div class="card-content">
+        <h3>Sign up</h3>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "col s12") do |f| %>
-      <%= devise_error_messages! %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: "col s12") do |f| %>
+          <%= devise_error_messages! %>
 
-      <div class="row">
-        <h5>Account Information</h5>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :first_name %>
-          <%= f.label "First Name" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :last_name %>
-          <%= f.label "Last Name" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.email_field :email, autofocus: true %>
-          <%= f.label "Email" %><br />
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.password_field :password, autocomplete: "off" %>
-          <%= f.label "Password (#{@minimum_password_length} characters minimum)" %><br>
-        </div>
-        <div class="input-field col m6 s12 offset-m6">
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          <%= f.label :password_confirmation %><br />
-        </div>
+          <div class="row">
+            <h5 class="col s12">Account Information</h5>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :first_name %>
+              <%= f.label "First Name" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :last_name %>
+              <%= f.label "Last Name" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.email_field :email, autofocus: true %>
+              <%= f.label "Email" %><br />
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.label "Password (#{@minimum_password_length} characters minimum)" %><br>
+            </div>
+            <div class="input-field col m6 s12 offset-m6">
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              <%= f.label :password_confirmation %><br />
+            </div>
+          </div>
+
+          <div class="row">
+            <h5 class="col s12">Reminder Preferences</h5>
+            <p class="col s12">What type(s) of reminders would you like to receive when it is time to choose a gift?</p>
+            <div class="col s12">
+              <br><%= f.check_box :email_reminder, id: "email" %>
+              <%= f.label "Email Reminder", for:"email" %><br>
+              <%= f.check_box :sms_reminder, id: "sms" %>
+              <%= f.label "Text Reminder", for:"sms" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :phone_number %>
+              <%= f.label "Phone Number" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.select :phone_carrier, options_for_select([['AT&T','at&t'],['Boost Mobile','boost'],['Virgin Mobile', 'virgin'],['Sprint','sprint'],['T-Mobile','t-mobile'],['Verizon','verizon']]) %>
+              <%= f.label "Phone Carrier" %>
+            </div>
+          </div>
+
+          <div class="row">
+            <h5 class="col s12">Shipping Information <small>(optional)</small></h5>
+            <p class="col s12">Fill out this portion if you ever want gifts to be shipped directly to you, rather than to the recipient.</p>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :address_line_1 %>
+              <%= f.label "Street Address" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :address_line_2 %>
+              <%= f.label "Apt/Ste, PO Box (optional)" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :city %>
+              <%= f.label "City" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :state %>
+              <%= f.label "State" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :country %>
+              <%= f.label "Country" %>
+            </div>
+            <div class="input-field col m6 s12">
+              <%= f.text_field :zip_code %>
+              <%= f.label "Zip Code" %>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up", class: "btn lowercase-btn" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
       </div>
-
-      <div class="row">
-        <h5>Reminder Preferences</h5>
-        <p>What type(s) of reminders would you like to receive when it is time to choose a gift?</p>
-        <div>
-          <%= f.check_box :email_reminder, id: "email" %>
-          <%= f.label "Email Reminder", for:"email" %><br>
-          <%= f.check_box :sms_reminder, id: "sms" %>
-          <%= f.label "Text Reminder", for:"sms" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :phone_number %>
-          <%= f.label "Phone Number" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.select :phone_carrier, options_for_select([['AT&T','at&t'],['Boost Mobile','boost'],['Virgin Mobile', 'virgin'],['Sprint','sprint'],['T-Mobile','t-mobile'],['Verizon','verizon']]) %>
-          <%= f.label "Phone Carrier" %>
-        </div>
-      </div>
-
-      <div class="row">
-        <h5>Shipping Information <small>(optional)</small></h5>
-        <p>Fill out this portion if you ever want gifts to be shipped directly to you, rather than to the recipient.</p>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :address_line_1 %>
-          <%= f.label "Street Address" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :address_line_2 %>
-          <%= f.label "Apt/Ste, PO Box (optional)" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :city %>
-          <%= f.label "City" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :state %>
-          <%= f.label "State" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :country %>
-          <%= f.label "Country" %>
-        </div>
-        <div class="input-field col m6 s12">
-          <%= f.text_field :zip_code %>
-          <%= f.label "Zip Code" %>
-        </div>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up", class: "btn" %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+    </div>
   </div>
-</div>
+</body>
