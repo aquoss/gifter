@@ -26,10 +26,10 @@ class OrdersController < ApplicationController
     order = Order.find(params[:order_id])
     if order.update_attributes(:confirmed_delivery => true)
       flash[:notice] = "Thanks for confirming!"
-      redirect_to user_path(current_user)
+      redirect_to (:back)
     else
       flash[:error] = order.errors.full_messages.join(". ")
-      redirect_to user_path(current_user)
+      redirect_to (:back)
     end
   end
 
