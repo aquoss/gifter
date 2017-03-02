@@ -1,6 +1,6 @@
-$(document).ready(function() {
-  $('.dropdown-button').dropdown();
+$(document).on('turbolinks:load', function() {
   $('select').material_select();
+  $('.dropdown-button').dropdown();
   $('.scrollspy').scrollSpy();
   $('.datepicker').pickadate({
    selectMonths: true, // Creates a dropdown to control month
