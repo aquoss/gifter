@@ -2,7 +2,12 @@
   <table class="card-content">
     <thead>
       <tr>
-        <td class="card-title">Ordered Gifts</td>
+        <h5 class="card-title">Ordered Gifts</h5>
+      </tr>
+      <tr>
+        <th>For</th>
+        <th>Tracking</th>
+        <th>Did they recieve it?</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +20,11 @@
                 <strong><%= recipient.first_name %></strong> - <%= event.occasion %>
               </td>
               <td>
-                <%= order.tracking_number %>
+                <% if order.tracking_number %>
+                  <%= order.tracking_number %>
+                <% else %>
+                  available soon
+                <% end %>
               </td>
               <td>
                 <%= link_to "Confirm Receipt", edit_order_path(@user, order), :method => :patch %>
