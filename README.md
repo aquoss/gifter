@@ -18,17 +18,9 @@ This app uses Ruby on Rails 5.0.1. It utilizes Devise for auth and Stripe to han
 * CSS
 
 ## Database Structure
-![alt text](erd.pdf?raw=true "ERD")
+![alt text](erd.pdf)
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 ## Notes
 - create traits table out of all possible combinations of each trait, and then assign the corresponding trait combo id to each person/each gift
