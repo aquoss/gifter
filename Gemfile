@@ -35,6 +35,7 @@ gem 'turbolinks', '~> 5.0.0'
 gem 'devise'
 # for payment
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'ffaker', '~> 2.2'
 
 
 # materialize sass-rails
