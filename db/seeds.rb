@@ -22,14 +22,14 @@
 #
 # Trait.create(reading:true, film:true, cooking:true, art:true, electronics:false, sports:false, fashion:true, gaming:false, music:true, travel:true, outdoor_activities:false, age:"adult", female:true, male:false, cheapest_price:false, low_price:false, med_price:true, high_price:true, traitable_type:Recipient, traitable_id:2)
 
-# gift_data = []
-# 40.times do
-#   gift_data << {
-#     item: FFaker::Product.product_name,
-#     price: rand(5..120)
-#   }
-# end
-# Gift.create(gift_data)
+gift_data = []
+40.times do
+  gift_data << {
+    item: FFaker::Product.product_name,
+    price: rand(5..120)
+  }
+end
+Gift.create(gift_data)
 
 trait_data = []
 (1..48).each do |num|
