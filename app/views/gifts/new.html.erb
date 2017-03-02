@@ -1,0 +1,17 @@
+<% if current_user.admin %>
+  <%= form_for @gift, url: create_gift_path do |f| %>
+    <div class="input-field">
+      <%= f.label :item %>
+      <%= f.text_field :item %>
+    </div>
+    <div class="input-field">
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </div>
+    <div class="input-field">
+      <%= f.label :image %>
+      <%= f.text_field :image %>
+    </div>
+    <%= f.submit "Submit", class: "btn" %>
+  <% end %>
+<% end %>
