@@ -18,7 +18,7 @@ This app uses Ruby on Rails 5.0.1. It utilizes Devise for auth and Stripe to han
 * CSS
 
 ## Database Structure
-![alt text](erd.pdf "ERD")
+![alt text](erd.pdf?raw=true "ERD")
 
 * Database initialization
 
