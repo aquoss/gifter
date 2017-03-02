@@ -1,16 +1,23 @@
 <div class="card col s12 z-depth-0">
   <table class="card-content">
     <thead>
+      <h5 class="card-title">Past Gifts</h5>
       <tr>
-        <td class="card-title">Past Gifts</td>
+        <th>Gift</th>
+        <th>Occasion</th>
+        <th>Date</th>
       </tr>
     </thead>
     <tbody>
       <% sortPastEvents(@recipient.events).each do |event| %>
         <tr>
           <td>
-            <% event.gifts.each do |gift| %>
-              <%= gift.item %>
+            <% if event.orders.exists? %>
+              <% event.gifts.each do |gift| %>
+                <%= gift.item %>
+              <% end %>
+            <% else %>
+              No gift this time around!
             <% end %>
           </td>
           <td>

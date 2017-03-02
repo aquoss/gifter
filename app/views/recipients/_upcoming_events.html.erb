@@ -1,8 +1,11 @@
 <div class="card col s12 z-depth-0">
   <table class="card-content">
     <thead>
+      <h5 class="card-title">Upcoming Gifts</h5>
       <tr>
-        <td class="card-title">Upcoming Events</td>
+        <th>Occasion</th>
+        <th>Date</th>
+        <th>Delete event?</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +22,8 @@
               <%= link_to delete_recipient_event_path(@recipient, event), method: :delete do %>
                 <i class="material-icons">delete_forever</i>
               <% end %>
+            <% else %>
+              Gift already ordered!
             <% end %>
           </td>
         </tr>
