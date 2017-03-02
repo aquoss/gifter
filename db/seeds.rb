@@ -3,7 +3,8 @@
 # User.destroy_all
 # Recipient.destroy_all
 # Event.destroy_all
-# Gift.destroy_all
+Gift.destroy_all
+Trait.destroy_all
 
 
 # recipient = Recipient.create(first_name: "Pam", last_name: "Quoss", address_line_1: "3448 Old Military Rd", address_line_2: "", zip_code: "97502", city: "Central Point", state: "OR", country: "USA", user: User.first)
@@ -31,9 +32,9 @@ gift_data = []
 end
 Gift.create(gift_data)
 
-trait_data = []
+
 (1..48).each do |num|
-  trait_data << {
+  Trait.create(
     reading: FFaker::Boolean.random,
     film: FFaker::Boolean.random,
     cooking: FFaker::Boolean.random,
@@ -52,9 +53,9 @@ trait_data = []
     low_price: FFaker::Boolean.random,
     med_price: FFaker::Boolean.random,
     high_price: FFaker::Boolean.random,
-    traitable_type: Gift,
+    traitable_type: "Gift",
     traitable_id: num
-  }
+  )
 end
-Trait.create(trait_data)
+
 ## careful, right now a gift can apply to multiple price ranges
