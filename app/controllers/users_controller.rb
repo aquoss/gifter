@@ -9,8 +9,8 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
   end
 
-  def send_reminder
-    deliver_sms("9095180471","verizon",“Gifter here! It is time to choose a gift for one or more of your recipients. Log on to see your recommendations :)”)
+  def self.send_reminder
+    deliver_sms("9095180471","verizon","Gifter here! It is time to choose a gift for one or more of your recipients. Log on to see your recommendations :)")
   end
 
   # def edit
