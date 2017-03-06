@@ -1,11 +1,11 @@
 <div class="col s12 m5">
   <div class="card">
     <div class="card-image">
-      <img src="http://www.shzongyue.com/data/out/97/39543346-present.jpg">
+      <img src= <%= "#{@gift.image}" %> >
     </div>
     <div class="card-content">
       <strong><%= @gift.item %></strong><br>
-      <%= @gift.price %>
+      <%= number_to_currency @gift.price %>
     </div>
   </div>
 </div>
