@@ -8,7 +8,7 @@
         </div>
         <div class="card-content">
           <strong><%= gift.item %></strong><br>
-          <%= gift.price %>
+          <%= number_to_currency gift.price %>
         </div>
         <div class="card-action">
           <%= link_to "Select me!", new_order_path(@recipient, @event, gift) %>
