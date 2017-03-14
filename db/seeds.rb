@@ -80,12 +80,6 @@ Trait.create(reading:true, film:false, cooking:false, art:false, electronics:fal
 Gift.create(item:"Bose Soundlink Mini Bluetooth Speaker", price:159.99, image:"https://images-na.ssl-images-amazon.com/images/G/01/brands/bose/SoundLink_Mini-370w.jpg")
 Trait.create(reading:false, film:false, cooking:false, art:false, electronics:true, sports:false, fashion:false, gaming:false, music:true, travel:false, outdoor_activities:true, age:"adult", female:true, male:true, cheapest_price:false, low_price:false, med_price:false, high_price:true, traitable_type: "Gift", traitable_id:8)
 
-Gift.create(item:"Black Light Putty", price:15.00, image:"http://www.uncommongoods.com/images/items/25000/25083_1_1200px.jpg")
-Trait.create(reading:false, film:false, cooking:false, art:true, electronics:false, sports:false, fashion:false, gaming:false, music:false, travel:false, outdoor_activities:false, age:"child", female:true, male:true, cheapest_price:true, low_price:true, med_price:false, high_price:false, traitable_type: "Gift", traitable_id:9)
-
-Gift.create(item:"Monster Hand Tattoo Sets", price:12.00, image:"http://www.uncommongoods.com/images/items/18500/18540_1_360px.jpg")
-Trait.create(reading:false, film:false, cooking:false, art:true, electronics:false, sports:false, fashion:true, gaming:false, music:false, travel:false, outdoor_activities:false, age:"child", female:true, male:true, cheapest_price:true, low_price:false, med_price:false, high_price:false, traitable_type: "Gift", traitable_id:10)
-
 Gift.create(item:"Baseball Game", price:50.00, image:"http://www.uncommongoods.com/images/items/23500/23564_1_360px.jpg")
 Trait.create(reading:false, film:false, cooking:false, art:false, electronics:false, sports:true, fashion:false, gaming:true, music:false, travel:false, outdoor_activities:true, age:"adult", female:true, male:true, cheapest_price:false, low_price:true, med_price:true, high_price:true, traitable_type: "Gift", traitable_id:11)
 
@@ -148,9 +142,3 @@ Trait.create(reading:false, film:false, cooking:false, art:true, electronics:fal
 
 Gift.create(item:"Travel Cooking Essentails Kit", price:38.99, image:"http://www.uncommongoods.com/images/items/43200/43268_1_360px.jpg")
 Trait.create(reading:false, film:false, cooking:true, art:false, electronics:false, sports:false, fashion:false, gaming:false, music:false, travel:true, outdoor_activities:true, age:"adult", female:true, male:true, cheapest_price:false, low_price:true, med_price:true, high_price:false, traitable_type: "Gift", traitable_id:31)
-
-Gift.create(item:"Construction Plate and Utensils", price:17.50, image:"http://www.uncommongoods.com/images/items/18000/18097_1_360px.jpg")
-Trait.create(reading:false, film:false, cooking:true, art:false, electronics:false, sports:false, fashion:false, gaming:false, music:false, travel:false, outdoor_activities:true, age:"child", female:true, male:true, cheapest_price:true, low_price:true, med_price:false, high_price:false, traitable_type: "Gift", traitable_id:32)
-
-Gift.create(item:"Kids Edible Chemistry Kit", price:18.00, image:"http://www.uncommongoods.com/images/items/23800/23899_1_360px.jpg")
-Trait.create(reading:false, film:false, cooking:true, art:false, electronics:false, sports:false, fashion:false, gaming:false, music:false, travel:false, outdoor_activities:false, age:"child", female:true, male:true, cheapest_price:true, low_price:true, med_price:false, high_price:false, traitable_type: "Gift", traitable_id:33)
