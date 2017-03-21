@@ -25,7 +25,7 @@ Polymorphic relationship for Traits with Gifts and Orders
 
 ## Challenges
 * Modifying multiple models within one view
-* Matching gifts to recipients based on their shared traits
+* Matching gifts to recipients based on their shared traits (see code below)
 ```Ruby
 def to_trait_hash(instance)
   instance.traits.map(&:attributes).first
