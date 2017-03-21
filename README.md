@@ -20,7 +20,7 @@ This app uses Ruby on Rails 5.0.1. It utilizes Devise for auth and Stripe to han
 * CSS
 
 ## Database Structure
-![ERD](Gifter ERD.jpg)
+![ERD](ERD.jpg)
 Polymorphic relationship for Traits with Gifts and Orders
 
 ## Challenges
