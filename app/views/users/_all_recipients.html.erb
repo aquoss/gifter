@@ -7,9 +7,9 @@
           <li class="collection-item avatar">
             <img src="http://www.akshattyagi.com/wp-content/uploads/2016/10/gift-box-in-hand-flat-icon-01-f.jpg" alt="" class="circle" id="recipient-avatar">
             <span class="title"><strong><%= link_to "#{recipient.first_name} #{recipient.last_name}", recipient_path(recipient) %></strong></span>
-            <% if nextEvent(recipient) %>
-              <p> Next Event: <%= nextEvent(recipient).occasion %><br>
-                <%= nextEvent(recipient).calendar_date.strftime("%B %d, %Y") %>
+            <% if next_event(recipient) %>
+              <p> Next Event: <%= next_event(recipient).occasion %><br>
+                <%= next_event(recipient).calendar_date.strftime("%B %d, %Y") %>
               </p>
             <% end %>
           </li>
@@ -18,7 +18,7 @@
     </ul>
     <div class="col s4 offset-s1">
       <h6>Create New Recipient</h6>
-      <% newRecipient %>
+      <% new_recipient %>
       <%= form_for @recipient, url: new_recipient_path(@user) do |f| %>
         <%= f.hidden_field :user_id, value: @user.id %>
         <div class="input-field">

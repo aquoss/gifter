@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <% sortPastEvents(@recipient.events).each do |event| %>
+      <% sort_past_events(@recipient.events).each do |event| %>
         <tr>
           <td>
             <% if event.orders.exists? %>

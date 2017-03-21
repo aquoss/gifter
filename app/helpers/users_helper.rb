@@ -1,15 +1,15 @@
 module UsersHelper
 
-  def nextEvent recipient
+  def next_event recipient
     events = recipient.events.where('calendar_date > ?', Date.today).sort_by &:calendar_date
     events.first
   end
 
-  def newRecipient
+  def new_recipient
     @recipient = Recipient.new
   end
 
-  def calendarEvents user
+  def calendar_events user
     recipient_ids = []
     user.recipients.each do |recipient|
       recipient_ids << recipient.id
@@ -17,7 +17,7 @@ module UsersHelper
     @calendar_events = Event.where(recipient_ids.include? :recipient_id)
   end
 
-  # def upcomingGifts user
+  # def get_upcoming_gifts user
   #   recipient_ids = []
   #   user.recipients.each do |recipient|
   #     recipient_ids << recipient.id

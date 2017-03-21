@@ -1,25 +1,25 @@
 module RecipientsHelper
 
-  def sortUpcomingEvents events
+  def sort_upcoming_events events
     upcoming = events.where("calendar_date > ?", Date.today)
     upcoming.sort_by &:calendar_date
   end
 
-  def sortPastEvents events
+  def sort_past_events events
     past = events.where("calendar_date < ?", Date.today)
     sorted = past.sort_by &:calendar_date
     sorted.reverse
   end
 
-  def findTrait recipient
+  def find_trait recipient
     @trait = recipient.traits.first
   end
 
-  def newEvent
+  def new_event
     @event = Event.new
   end
 
-  def newTrait
+  def new_trait
     @trait = Trait.new
   end
 

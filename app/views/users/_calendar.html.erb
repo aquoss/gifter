@@ -1,6 +1,6 @@
 <div class="col s12 card">
   <div class="card-content">
-    <% calendarEvents(@user) %>
+    <% calendar_events(@user) %>
     <%= month_calendar events: @calendar_events, attribute: :calendar_date do |date, events| %>
       <%= date.strftime("%d") %>
       <% events.each do |event| %>
